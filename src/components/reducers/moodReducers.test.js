@@ -9,46 +9,50 @@ import reducer from './moodReducers.js';
 describe('mood reducers tests', () => {
   it('handles the DRINK_COFFEE case', () => {
     const action = drinkCoffee();
-    const initialState = {};
+    const initialState = { coffees: 0 };
     
     const newState = reducer(initialState, action);
     expect(newState).toEqual({ coffees: 1 });
-
+    
+    newState.snacks = 3;
     const secondState = reducer(newState, action);
-    expect(secondState).toEqual({ coffees: 2 });
+    expect(secondState).toEqual({ coffees: 2, snacks: 3 });
   });
 
   it('handles the EAT_SNACK case', () => {
     const action = eatSnack();
-    const initialState = {};
+    const initialState = { snacks: 0 };
 
     const newState = reducer(initialState, action);
     expect(newState).toEqual({ snacks: 1 });
 
+    newState.coffees = 5;
     const secondState = reducer(newState, action);
-    expect(secondState).toEqual({ snacks: 2 });
+    expect(secondState).toEqual({ snacks: 2, coffees: 5 });
   });
 
   it('handles the TAKE_NAP case', () => {
     const action = takeNap();
-    const initialState = {};
+    const initialState = { naps: 0 };
 
     const newState = reducer(initialState, action);
     expect(newState).toEqual({ naps: 1 });
 
+    newState.snacks = 3;
     const secondState = reducer(newState, action);
-    expect(secondState).toEqual({ naps: 2 });
+    expect(secondState).toEqual({ naps: 2, snacks: 3 });
   });
 
   it('handles the STUDY case', () => {
     const action = study();
-    const initialState = {};
+    const initialState = { studies: 0 };
 
     const newState = reducer(initialState, action);
     expect(newState).toEqual({ studies: 1 });
 
+    newState.naps = 6;
     const secondState = reducer(newState, action);
-    expect(secondState).toEqual({ studies: 2});
+    expect(secondState).toEqual({ studies: 2, naps: 6 });
   });
 
   it('handles all other cases', () => {
