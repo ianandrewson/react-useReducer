@@ -28,7 +28,7 @@ describe('mood selector tests', () => {
     expect(face).toEqual('😴');
 
     state.naps = 1;
-    state.study = 3;
+    state.studies = 3;
     face = getFace(state);
     expect(face).toEqual('😲');
   });
