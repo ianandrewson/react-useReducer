@@ -13,7 +13,7 @@ export default function Moods() {
 
   return (
     <>
-      <Controls actions={actions} dispatch={dispatch} mood={mood}/>
+      <Controls actions={actions} dispatch={dispatch}/>
       <Face emoji={face} />
     </>
   );
